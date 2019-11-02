@@ -1,0 +1,104 @@
+{
+  "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "actions": {
+          "Compose": {
+              "inputs": "@body('Create_share_link')?['WebUrl']",
+              "runAfter": {
+                  "Create_share_link": [
+                      "Succeeded"
+                  ]
+              },
+              "type": "Compose"
+          },
+          "Create_share_link": {
+              "inputs": {
+                  "host": {
+                      "connection": {
+                          "name": "@parameters('$connections')['onedrive']['connectionId']"
+                      }
+                  },
+                  "method": "post",
+                  "path": "/datasets/default/files/@{encodeURIComponent(encodeURIComponent(triggerOutputs()['headers']['x-ms-file-id']))}/share",
+                  "queries": {
+                      "type": "View"
+                  }
+              },
+              "runAfter": {},
+              "type": "ApiConnection"
+          },
+          "Send_email": {
+              "inputs": {
+                  "body": {
+                      "Body": "web url : @{body('Create_share_link')?['WebUrl']} \nshare link output:@{outputs('Compose')}",
+                      "IsHtml": true,
+                      "Subject": "@base64ToString(triggerOutputs()['headers']['x-ms-file-name-encoded'])",
+                      "To": "uo@mm.st"
+                  },
+                  "host": {
+                      "connection": {
+                          "name": "@parameters('$connections')['gmail']['connectionId']"
+                      }
+                  },
+                  "method": "post",
+                  "path": "/Mail"
+              },
+              "runAfter": {
+                  "Compose": [
+                      "Succeeded"
+                  ]
+              },
+              "type": "ApiConnection"
+          }
+      },
+      "contentVersion": "1.0.0.0",
+      "outputs": {},
+      "parameters": {
+          "$connections": {
+              "defaultValue": {},
+              "type": "Object"
+          }
+      },
+      "triggers": {
+          "When_a_file_is_created": {
+              "inputs": {
+                  "host": {
+                      "connection": {
+                          "name": "@parameters('$connections')['onedrive']['connectionId']"
+                      }
+                  },
+                  "method": "get",
+                  "path": "/datasets/default/triggers/onnewfile",
+                  "queries": {
+                      "folderId": "35DA4A97510AB40!103",
+                      "inferContentType": true
+                  }
+              },
+              "metadata": {
+                  "35DA4A97510AB40!103": "/Documents"
+              },
+              "recurrence": {
+                  "frequency": "Second",
+                  "interval": 30
+              },
+              "type": "ApiConnection"
+          }
+      }
+  },
+  "parameters": {
+      "$connections": {
+          "value": {
+              "gmail": {
+                  "connectionId": "/subscriptions/f5f070ac-2a64-44d8-9580-6818d1f7948a/resourceGroups/ansasm/providers/Microsoft.Web/connections/gmail",
+                  "connectionName": "gmail",
+                  "id": "/subscriptions/f5f070ac-2a64-44d8-9580-6818d1f7948a/providers/Microsoft.Web/locations/australiaeast/managedApis/gmail"
+              },
+              "onedrive": {
+                  "connectionId": "/subscriptions/f5f070ac-2a64-44d8-9580-6818d1f7948a/resourceGroups/ansasm/providers/Microsoft.Web/connections/onedrive-1",
+                  "connectionName": "onedrive-1",
+                  "id": "/subscriptions/f5f070ac-2a64-44d8-9580-6818d1f7948a/providers/Microsoft.Web/locations/australiaeast/managedApis/onedrive"
+              }
+          }
+      }
+  }
+}

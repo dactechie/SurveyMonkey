@@ -1,0 +1,278 @@
+{
+    "definition": {
+        "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+        "actions": {
+            "Compose": {
+                "inputs": "@{body('Parse_JSON')}@{body('Parse_JSON')?['client_id']}@{body('Parse_JSON')?['gender']}@{body('Parse_JSON')?['staff']}",
+                "runAfter": {
+                    "Parse_JSON": [
+                        "Succeeded"
+                    ]
+                },
+                "type": "Compose"
+            },
+            "Create_file": {
+                "inputs": {
+                    "body": "@body('Populate_a_Microsoft_Word_template')",
+                    "host": {
+                        "connection": {
+                            "name": "@parameters('$connections')['onedrive_1']['connectionId']"
+                        }
+                    },
+                    "method": "post",
+                    "path": "/datasets/default/files",
+                    "queries": {
+                        "folderPath": "/Documents",
+                        "name": "\"@{body('Parse_JSON')?['client_id']}_@{body('Parse_JSON')?['response_id']}\".docx"
+                    }
+                },
+                "runAfter": {
+                    "Populate_a_Microsoft_Word_template": [
+                        "Succeeded"
+                    ]
+                },
+                "runtimeConfiguration": {
+                    "contentTransfer": {
+                        "transferMode": "Chunked"
+                    }
+                },
+                "type": "ApiConnection"
+            },
+            "Parse_JSON": {
+                "inputs": {
+                    "content": "@triggerBody()",
+                    "schema": {
+                        "properties": {
+                            "CHECKLIST": {
+                                "type": "string"
+                            },
+                            "Country of Birth": {
+                                "type": "string"
+                            },
+                            "Goals": {
+                                "items": {
+                                    "type": "string"
+                                },
+                                "type": "array"
+                            },
+                            "ODC1": {
+                                "type": "string"
+                            },
+                            "ODC2": {
+                                "type": "string"
+                            },
+                            "PDC": {
+                                "type": "string"
+                            },
+                            "Preferred Language": {
+                                "type": "string"
+                            },
+                            "ReferralSource": {
+                                "type": "string"
+                            },
+                            "ServicesIdentified": {
+                                "items": {
+                                    "type": "string"
+                                },
+                                "type": "array"
+                            },
+                            "atsi": {
+                                "type": "string"
+                            },
+                            "client_id": {
+                                "type": "string"
+                            },
+                            "client_type": {
+                                "type": "string"
+                            },
+                            "dob": {
+                                "type": "string"
+                            },
+                            "gender": {
+                                "type": "string"
+                            },
+                            "method_of_use": {
+                                "type": "string"
+                            },
+                            "other": {
+                                "type": "string"
+                            },
+                            "response_id": {
+                                "type": "string"
+                            },
+                            "risk_dv": {
+                                "type": "integer"
+                            },
+                            "risk_suicide": {
+                                "type": "integer"
+                            },
+                            "safety_concern": {
+                                "type": "string"
+                            },
+                            "staff": {
+                                "type": "string"
+                            },
+                            "survey_id": {
+                                "type": "string"
+                            },
+                            "team": {
+                                "type": "string"
+                            },
+                            "thoughts_selfharm": {
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    }
+                },
+                "runAfter": {},
+                "type": "ParseJson"
+            },
+            "Populate_a_Microsoft_Word_template": {
+                "inputs": {
+                    "body": {
+                        "1228798176": "@body('Parse_JSON')?['client_type']",
+                        "1528362898": "@body('Parse_JSON')?['client_id']",
+                        "-1041280863": "@body('Parse_JSON')?['staff']"
+                    },
+                    "host": {
+                        "connection": {
+                            "name": "@parameters('$connections')['wordonlinebusiness']['connectionId']"
+                        }
+                    },
+                    "method": "post",
+                    "path": "/api/templates/getFile",
+                    "queries": {
+                        "drive": "b!TQEyQLwbT0-Z2YVgt8koSaI3_tjmJYpLlHwfJrThR2zyxCkjY3AESYjwhCrSdR6-",
+                        "file": "01ZYEGLWAWVHXGOIEM4JFL6ELY2B5DNTZ4",
+                        "source": "sites/directionshealth.sharepoint.com,4032014d-1bbc-4f4f-99d9-8560b7c92849,d8fe37a2-25e6-4b8a-947c-1f26b4e1476c"
+                    }
+                },
+                "metadata": {
+                    "01ZYEGLWAWVHXGOIEM4JFL6ELY2B5DNTZ4": "/ICT/TemplateForANSALogicApp.docx"
+                },
+                "runAfter": {
+                    "Compose": [
+                        "Succeeded"
+                    ]
+                },
+                "type": "ApiConnection"
+            }
+        },
+        "contentVersion": "1.0.0.0",
+        "outputs": {},
+        "parameters": {
+            "$connections": {
+                "defaultValue": {},
+                "type": "Object"
+            }
+        },
+        "triggers": {
+            "manual": {
+                "inputs": {
+                    "schema": {
+                        "properties": {
+                            "CHECKLIST": {
+                                "type": "string"
+                            },
+                            "Country of Birth": {
+                                "type": "string"
+                            },
+                            "Goals": {
+                                "items": {
+                                    "type": "string"
+                                },
+                                "type": "array"
+                            },
+                            "ODC1": {
+                                "type": "string"
+                            },
+                            "ODC2": {
+                                "type": "string"
+                            },
+                            "PDC": {
+                                "type": "string"
+                            },
+                            "Preferred Language": {
+                                "type": "string"
+                            },
+                            "ReferralSource": {
+                                "type": "string"
+                            },
+                            "ServicesIdentified": {
+                                "items": {
+                                    "type": "string"
+                                },
+                                "type": "array"
+                            },
+                            "atsi": {
+                                "type": "string"
+                            },
+                            "client_id": {
+                                "type": "string"
+                            },
+                            "client_type": {
+                                "type": "string"
+                            },
+                            "dob": {
+                                "type": "string"
+                            },
+                            "gender": {
+                                "type": "string"
+                            },
+                            "method_of_use": {
+                                "type": "string"
+                            },
+                            "other": {
+                                "type": "string"
+                            },
+                            "response_id": {
+                                "type": "string"
+                            },
+                            "risk_dv": {
+                                "type": "integer"
+                            },
+                            "risk_suicide": {
+                                "type": "integer"
+                            },
+                            "safety_concern": {
+                                "type": "string"
+                            },
+                            "staff": {
+                                "type": "string"
+                            },
+                            "survey_id": {
+                                "type": "string"
+                            },
+                            "team": {
+                                "type": "string"
+                            },
+                            "thoughts_selfharm": {
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    }
+                },
+                "kind": "Http",
+                "type": "Request"
+            }
+        }
+    },
+    "parameters": {
+        "$connections": {
+            "value": {
+                "onedrive_1": {
+                    "connectionId": "/subscriptions/f5f070ac-2a64-44d8-9580-6818d1f7948a/resourceGroups/ansasm/providers/Microsoft.Web/connections/onedrive-1",
+                    "connectionName": "onedrive-1",
+                    "id": "/subscriptions/f5f070ac-2a64-44d8-9580-6818d1f7948a/providers/Microsoft.Web/locations/australiaeast/managedApis/onedrive"
+                },
+                "wordonlinebusiness": {
+                    "connectionId": "/subscriptions/f5f070ac-2a64-44d8-9580-6818d1f7948a/resourceGroups/ansasm/providers/Microsoft.Web/connections/wordonlinebusiness",
+                    "connectionName": "wordonlinebusiness",
+                    "id": "/subscriptions/f5f070ac-2a64-44d8-9580-6818d1f7948a/providers/Microsoft.Web/locations/australiaeast/managedApis/wordonlinebusiness"
+                }
+            }
+        }
+    }
+}

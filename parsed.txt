@@ -1,0 +1,57 @@
+{'Your Directions / Pathways Details:': {'Your Contact': ['Eurobodalla', 'Glenda McCarthy']}}
+{'SLK': 'AFTMJ121219901'}
+{'*#^ Principal Substance of Concern and Method of Use (if changed since registration)': {'Principal Substance of Concern': ['Alcohol', 'Ingest', '28']}}
+{'*#^ Other substances of concern (if changed since registration)': {'Substances of concernÂ ': ['Substances of Concern 1', 'Cannabis', '20']}}
+{'AOD UseÂ  (last 4 Weeks)': {'Alcohol': ['Ingest', 'Standard drinks', 'Daily', '16'], 'Cannabis': ['Inject', 'Joints', 'Weekly', '6']}}
+{'*#^ Injecting Drug Status (last 4 weeks)': {'Injecting Drug Status': ['Never Injected', 'Yes', '6']}}
+{'Do you ever think that your drug / alcohol use is out of control?': ['Sometimes']}
+{'Does the prospect of missing a session fix make you very anxious or nervous?': ['Sometimes']}
+{'How much do you worry about your use of drugs / alcohol?': ['Often']}
+{'Do you wish you could stop?': ['Always']}
+{'How difficult would you find it to stop or go without your substance of concern?': ['Very difficult']}
+{'HarmsÂ  / Risks In the last 4 weeks, have you experienced any of the following risks? ': ['Blackouts', 'Overdose or hospitalisation from drinking or drugs']}
+{'Did you gamble at all in the last 4 weeks (28 days)?': {'Number of Days': ['1']}}
+{'Did you engage in any other addictive behaviours during the last 4 weeks?': {'Hoarding': ['14']}}
+{'# Impact on Daily LivingÂ  During the last 4 weeks, how often has your substance use (or other addictive behaviour) impacted on your work or other daily living activities (like: social, recreational. study, caring for family)? ': ['Less than weekly']}
+{'*Usual Accommodation (last 4 weeks)': 'Private Residence (Owned, Rented or Public Housing)'}
+{'*Living ArrangementsÂ  (last 4 weeks)': 'Alone with child(ren)'}
+{'^ Your Housing (last 4 weeks)': ['At risk of eviction']}
+{'# Housing Stability In the last 4 weeks, have you had any difficulties with housing or finding somewhere stable to live?Â  ': ['Less than weekly']}
+{'Physical Safety In the last 4 weeks, have you felt safe where you live?': ['I often feel unsafe / threatened in my home and occasionally experience violenceÂ ']}
+{'In the last 4 weeks, have you had any concerns for the safety and wellbeing of either yourself or others? (consider: use or experience of physical violence, as well as other forms of abuse, such as intimidation, malicious shaming, controlling and isolation)': ['No']}
+{'HOUSING & SAFETY ACTION ITEMS: Any housing goals? Notes for ITSP': 'housing/ safety notes'}
+{'Are you currently employed?': 'No - Unemployed'}
+{'# ^ In the last 4 weeks, how often have you engaged in any of the following?': {'Voluntary Work': ['3 or 4 times per week', '16'], 'Other caregiving activities': ['Once or twice per week', '17']}}
+{'In the last 4 weeks, how important are each of these to you?Â  (on a scale of 1 - 10)': [{'Family Activities': '3'}, {'Hobbies, Interests & Other recreational activities': '6'}, {'Sporting Activities': '5'}, {'Sourcing or Taking Drugs': '4'}, {'Gambling': '6'}, {'Other': '8'}, {'other': 'sexting'}]}
+{'^ How has your physical health been, in the last 4 weeks? ': '2'}
+{'^ In the last 4 weeks have you been in hospital or needed to call an ambulance?': 'No'}
+{'Are you currently taking any medications?': 'buscopan'}
+{'HEALTH ACTION ITEMS: Any health goals? Notes for ITSP': 'no health action items'}
+{'^ In the last 4 weeks, how has your psychological / mental health been? Do you have moods, fears, emotions or other thoughts that concern you? (rate out of 10)': '4'}
+{'Sleep In the last 4 weeks have you had any sleep issues? Check all that apply': ['Difficulties falling asleep']}
+{'# In the last 4 weeks, how often has your mental health created problems in your daily life?  ': ['Once or twice a week']}
+{'* In the last 4 weeks, have you been hospitalised for a mental health issue?': 'arkham asylum'}
+{'In the last 4 weeks, have you experienced any thoughts of death / dying or of hurting yourself?': 'No'}
+{'Mental Health Risk Issues (ONLY IF DISCLOSED BY CLIENT)': ['Extreme stress', 'Delusional']}
+{'MENTAL HEALTH ACTION ITEMS: Any mental health goals? Notes for ITSP': 'nope'}
+{'# In the last 4 weeks, how often has your substance use lead to problems or arguments with family members or friends?': ['Less than weekly']}
+{'^ In the last 4 weeks, has anyone been violent or abusive towards you? (physical violence as well as other forms of psychological abuse eg. intimidation, threatening, malicious shaming, controlling and isolation)': ['Yes (risk assessment)']}
+{'^ In the last 4 weeks, have you used violence or been abusive towards anyone? (physical violence as well as other forms of abuseÂ  Â  Â  eg. intimidation, threatening, malicious shaming, controlling and isolation) ': ['No']}
+{'Parenting / CaregivingÂ  In the last 4 weeks, have you had parenting / caregiving responsibilities? Are you the primary caregiver for, or living with, any child / children?': ['Yes - primary caregiver - child
+/children aged 5 - 15 years']}
+{'In the last 4 weeks, have there been any child protection concerns?Â  Have either FaCS (NSW) or OCYFS (ACT) been involved with your family?': 'No'}
+{'RELATIONSHIPS ACTION ITEMS: Any relationship, parenting or social goals? Notes for ITSP': 'no relationship notes'}
+{'^Legal Have you been arrested in the last 4 weeks? ': 'No'}
+{'# In the last 4 weeks, how often have you been involved in any illegal activities?Â  (eg. DUI, assault, shoplifting, supplying drugs)?': ['Not at all']}
+{'Are you currently subject to court orders or have any charges pending?': 'No'}
+{'Do you need help with a Work Development Order to pay off any outstanding fines? ': 'Yes'}
+{'LEGAL ACTION ITEMS: Any legal goals? Notes for ITSP': 'legal action items ...'}
+{'Optimism / Hopefulness Do you feel positive / motivated about your future?': ['Not Really - have difficulty staying positive']}
+{'ResilienceÂ  Are you able to bounce back from stressful events?': ['Mostly - but sometimes requires some effort']}
+{'How important is change to you?': ['Critical for me. I need to change']}
+{'# How close are you to where you want to be in managing your substance use?Â Â (out of 10) ': '8'}
+{"^ So, now we've gone through everything, how would you rate your situation over the last 4 weeks ? (out of 10)Â  ": '4'}
+{"Is there anything else you'd like to tell us about yourself ?": 'No'}
+{'Are you engaged with any other services at the moment?': ['No', 'Medical practitioner', 'Hospital', 'Alcohol and other drug treatment service']}
+{'DIRECTIONS SERVICES: What type of support best matches client needs and goals?': ['Case Management', 'Althea GP', 'Support, information and/or counselling as a family member or friend of a person with a substance dependency']}
+{'CHECKLIST': ['Client Consent to Share Information signed']}
