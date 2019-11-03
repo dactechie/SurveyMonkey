@@ -1,0 +1,75 @@
+{
+    "type": "object",
+    "version": 1.0,
+    "description": "ITSP Review Schema",
+    "required": [ "id", "date_created", "pages" ],
+    "properties": {
+      "id": { "type": "string" },
+      "date_created": { "type": "string" },
+      "pages": {"type": "array", "items": { "$ref": "#/definitions/page" } }
+    },
+    "definitions": {
+      "page": {
+        "type": "object",
+        "required": ["id", "questions"],
+        "properties": {
+          "id": { "type": "string" },
+          "questions" : {"type": "array", "items": { "$ref": "#/definitions/question" } }
+        }
+      },
+      "question": {
+        "type": "object",
+        "required": ["id", "family", "answers"],
+        "properties": {
+          "id": { "type": "string" },
+          "family" : { "type": "string" },
+          "answers" : {"type": "array", "items": { "$ref": "#/definitions/answer" } },
+          "headings": {"type": "array", "items": { "type": "object", "properties":{ "heading" :{ "type": "string" }}} }
+        }
+      },
+      "answer": {
+        "type": "object",
+        "required": ["id"],
+        "properties": {
+          "id": { "type": "string" },          
+          "rows" : {"type": "array", "items": { "$ref": "#/definitions/idtextobj" } },
+          "choices":{"type":"array", "items": { "$ref": "#/definitions/choice" } },
+          "cols" : {"type": "array", "items": { "$ref": "#/definitions/col" } },
+          "other": {"type": "object","$ref": "#/definitions/idtextobj"}
+        }
+      },
+      "col": {
+        "type": "object",
+        "properties": {
+          "allOf": [
+            { "$ref": "#/definitions/idtextobj" },
+            { "properties":
+                { "choices": {"type": "array", 
+                              "items": { "$ref": "#/definitions/choice" } 
+                              }
+                }
+            }
+          ]          
+        }
+      },
+      "choice": {
+        "type": "object",
+        "properties": {
+          "allOf": [
+            { "$ref": "#/definitions/idtextobj" },
+            { "properties":
+                { "weight":{ "type": "int" } }
+            }
+          ]
+        }
+      },
+      "idtextobj": {
+        "type": "object",
+        "required": ["id", "text"],
+        "properties": {
+          "id": { "type": "string" },          
+          "text": { "type": "string" }
+        }
+      }
+    }
+}

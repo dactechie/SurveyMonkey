@@ -1,9 +1,6 @@
 import re
 from random import randrange
 from datetime import timedelta
-# import the hash algorithm
-from passlib.hash import pbkdf2_sha256
-import gzip
 
 
 #re.compile("[^A-Za-zs?.0-9()]")
@@ -203,14 +200,6 @@ def table_storage_convertor(arb_list):
   return results
     
 
-def calculate_hash(json_object):
-  return pbkdf2_sha256.hash(json_object)
-
-
-def verify_hash(json_object, hash):
-  return pbkdf2_sha256.verify(json_object, hash)
-
-
 def get_text_by_idlist(idlist, dict_array):
   return (clean(dict['text']) for dict in dict_array if dict['id'] in idlist)
 
@@ -231,21 +220,4 @@ def random_date(start, end):
     int_delta = (delta.days * 24 * 60 * 60) + delta.seconds
     random_second = randrange(int_delta)
     return start + timedelta(seconds=random_second)
-
-
-# from io import BytesIO
-# from pprint import pprint
-# import zipfile
-
-def zip_data(data_obj):
   
- 
-
-  json_str = str(data_obj)
-      # bytes(string, encoding)
-  json_bytes = bytes(json_str,'utf8')
-
-
-  s_out = gzip.compress(json_bytes)
-
-  return s_out
