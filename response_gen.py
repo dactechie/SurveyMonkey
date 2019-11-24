@@ -4,11 +4,11 @@ from datetime import datetime, timezone
 from util import random_date
 
 #SKIP random rows
-SKIP_ROW_PERCENT = 0.7
+#SKIP_ROW_PERCENT = 0.7
 
 today = datetime.now()
 
-todaystr = today.strftime("%m/%d/%Y %H:%M %p")
+todaystr = today.strftime("%m/%d/%Y")
 d1 = datetime.strptime('1/1/1958 1:30 PM', '%d/%m/%Y %I:%M %p')
 d2 = datetime.strptime('1/1/2005 4:50 AM', '%d/%m/%Y %I:%M %p')
 
@@ -101,8 +101,8 @@ def family_datetime(data):
 #file = './registration.json'
 #file = './date_test.json'
 #file = './itsp_survey_schema.json'
-#file = './initial_assesment.json'
-file = './json/client_registration_schema.json'
+file = './json/initial_assessment_schema.json'
+#file = './json/client_registration_schema.json'
 #file = './json/mj_rego_schema.json'
 
 data ={} 
